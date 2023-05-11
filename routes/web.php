@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\PostssController;
+use App\Http\Controllers\PostsController;
 
 
 /*
@@ -17,7 +17,7 @@ use App\Http\Controllers\PostssController;
 */
 
 Route::get('/',[PagesController::class,'index']);
-Route::get('/blog',PostsController::class);
+Route::resource('/blog', PostsController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

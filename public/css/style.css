@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+/* -------------------Navbar------------------------------------- */
+.wnav
+{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
+}
+
+a.cwhite{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+a.cwhite:hover{
+    color: rgb(211, 255, 194);
+}
+
+.call{
+    color: rgb(211, 255, 194);
+}
+/* ------------------------Canvas-------------------------------- */
+.bld{
+    font-weight: bolder;
+}
+.mimage{
+    height:530px;
+}
+.topleft {
+position: absolute;
+top: 100px;
+color: white;
+font-size: 18px;
+}
+.fons{
+    font-size: 20px;
+}
+.fontshead{
+    font-size: 65px; 
+}
+a.res:hover{
+    color: #146c43;
+}
+.para{
+    font-weight: 800;
+}
+/* ----------------Quote-------- */
+.fquote{
+    font-size: 35px;
+}
+.qt{
+    padding: 100px;
+    background-color:rgb(248, 248, 248);
+}
+/* ---------------------------Footer------------------------------------ */
+.last-nav{
+    display:flex;
+    flex-direction:row;
+     justify-content:space-between;
+} 
+.amenu.active {
+   border-top: 2px solid black;
+} 
+.btnline{
+    color: #146c43;
+    border-bottom: 2px solid #146c43;
+    transition: 1s;
+}
+.btnline:hover{
+    color: #010805;
+    border-bottom: 2px solid #000000;
+}
+.qt{
+    padding: 100px;
+    background-color:rgb(248, 248, 248);
+}
