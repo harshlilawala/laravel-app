@@ -5,6 +5,11 @@
 
 <section class="Blog">
     <div class="container-lg mb-lg-5">
+    @if (Auth::check())
+        <div class="py-3 fw-bold">
+            <a href="/blog/create" class=" btn btn-lg btn-success px-2 text-white">Create Post</a>
+        </div>
+    @endif
     @foreach ($posts as $post)
         <div class="row g-2">
             <div class="col-lg-6">
