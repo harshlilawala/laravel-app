@@ -18,7 +18,9 @@ use App\Http\Controllers\PostsController;
 
 Route::get('/',[PagesController::class,'index']);
 Route::resource('/blog', PostsController::class);
-Route::get('/blog/{more}',[PostsController::class,'show']);
+// Route::get('/blog/{more}',[PostsController::class,'show']);
+// Route::delete('/blog/{more}', 'PostController@destroy');
+
 Auth::routes();
 
 

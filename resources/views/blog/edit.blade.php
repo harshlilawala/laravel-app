@@ -4,7 +4,7 @@
 <div class="text-center">
     <div>
         <h1>
-            Create Post
+            Update Post
         </h1>
     </div>
 </div>
@@ -23,21 +23,22 @@
 
 <div class="pt-5 container">
     <form 
-        action="/blog"
+        action="/blog/{{ $post->more }}"
         method="POST"
         enctype="multipart/form-data">
         @csrf
+        @method('PUT')
 
         <input 
             type="text"
             name="title"
-            placeholder="Title..."
+            value="{{$post->title}}"
             class=" my-5  form-control">
 
         <textarea 
             name="description"
             placeholder="Description..."
-            class="py-5  form-control"></textarea>
+            class="py-5  form-control">{{$post->description}}</textarea>
 
         <div class="  pt-15">
             <label class="d-flex   items-center px-2 py-3">
