@@ -5,6 +5,15 @@
 
 <section class="Blog">
     <div class="container-lg mb-lg-5">
+    
+@if (session()->has('message'))
+    <div class="col-2 py-3">
+        <p class="ps-2 text-white fw-bold bg-success">
+            {{ session()->get('message') }}
+        </p>
+    </div>
+@endif
+
     @if (Auth::check())
         <div class="py-3 fw-bold">
             <a href="/blog/create" class=" btn btn-lg btn-success px-2 text-white">Create Post</a>
@@ -31,7 +40,7 @@
             </span>
 
                    
-                        <!-- <span class=" fw-bold">By  <span class="fw-bold text-muted">{{ $post->user->name ?? 'None'}}</span>1 day ago </span> -->
+                       
                         
                         <p class="lead my-4 para">
                            {{ $post->description}}<br> 
