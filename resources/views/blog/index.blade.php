@@ -37,7 +37,7 @@
     </div>
     <div class="col">
     <h2 class="pb-4">
-                    {{ $post->title }}
+        {{ $post->title }}
      </h2>
 
     <span>

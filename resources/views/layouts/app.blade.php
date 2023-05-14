@@ -68,6 +68,22 @@
                                     </form>
                                 </div>
                             </li>
+            @auth
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Notifications
+                        <span class="badge badge-pill badge-primary">{{ auth()->user()->unreadNotifications->count() }}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        @forelse (auth()->user()->unreadNotifications as $notification)
+                            <a class="dropdown-item">{{ $notification->data['title'] }}</a>
+                        @empty
+                            <a class="dropdown-item" href="#">No new notifications</a>
+                        @endforelse
+                    </div>
+                </li>
+            @endauth
+
                         @endguest
                     </ul>
                 </div>
