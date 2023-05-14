@@ -51,8 +51,8 @@ class NewPostNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'title' => $this->$user->title,
-            'more' => $this->$user->more,
+            'title' => $this->user->title,
+            'more' => $this->user->more,
             'description' => $this->$user->description
         ];
     }
