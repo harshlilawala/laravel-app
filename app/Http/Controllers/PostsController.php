@@ -56,14 +56,6 @@ class PostsController extends Controller
         $newImageName = uniqid() . '-' . $request->title . '.' . $request->image->extension();
 
         $request->image->move(public_path('images'), $newImageName);
-
-        // Post::create([
-        //     'title' => $request->input('title'),
-        //     'description' => $request->input('description'),
-        //     'more' => SlugService::createSlug(Post::class, 'more', $request->title),
-        //     'image_path' => $newImageName,
-        //     'user_id' => auth()->user()->id
-        // ]);
         $user = Post::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
@@ -72,9 +64,7 @@ class PostsController extends Controller
             'user_id' => auth()->user()->id
         ]);
         
-        $user->notify(new NewPostNotification($user));
-
-        auth()->user()->notify(new NewPostNotification($user));
+       
         
         return redirect('/blog')
         ->with('message', 'Your post has been added!');
