@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\User;
+use App\Models\comments;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -27,5 +28,10 @@ class Post extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function comments()
+    {
+        return $this->hasmany(Comments::class, 'post_id','id');
     }
 }
