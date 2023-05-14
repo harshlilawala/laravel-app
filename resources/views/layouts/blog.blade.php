@@ -6,14 +6,13 @@
                     <div class="bimg">
                         <img src="assets\g8.jpg" class="d-block w-100" alt="photo">
                     </div>
-                   
                 </div>
           </div>
 
             <div class="col-lg-6 g-5 mt-0 py-lg-4">
                 <div class="py-lg-5">
                     <h1>
-                        <div class="fw-bold heading">PROFI Restaurant</div>
+                        <div class="fw-bold heading">Swansea Restaurant</div>
                     </h1>
                         <p class="lead my-4 para">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate commodi explicabo nemo sed est, 
@@ -40,31 +39,3 @@
     </div>
 </section>
 <!-- ****************************************************** -->
-<section class="post">
-    <div class="container-lg mb-lg-5">
-        <h1 class="text-center fw-bold">Recent Post</h1>
-        <div class="row g-2 bg-success">
-        <div class="col-lg-6  g-5 mt-0 py-lg-4">
-                <div class="py-lg-5 ">
-                    <h1>
-                        <div class= "heading text-white">Recent Post</div>
-                    </h1>
-                        <p class="lead my-4 para text-white">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate commodi explicabo nemo sed est, 
-                            molestias nihil iusto a itaque exercitationem cumque sint odio animi porroWe regret to inform you that your application was refused. Check your messages below for details.<br> 
-                        </p>
-                        <div class="reserv">
-                            <a class="btn btn-lg btn-danger" href="#reservation">Reservation</a>
-                        </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="py-lg-5 pad">
-                    <div class="bimg">
-                        <img src="assets\g8.jpg" class="d-block w-100" alt="photo">
-                    </div> 
-                </div>
-          </div>
-        </div>
-      </div>
-</section>

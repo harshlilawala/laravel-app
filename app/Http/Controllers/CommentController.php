@@ -42,4 +42,25 @@ class CommentController extends Controller
            return redirect()->back()->with('message','Login First For Comment');
         }
     }
+    public function destroy(Request $request)
+    {
+        if(Auth::check())
+        {
+            $comment = comment::where('id',$request->comment_id)
+                        ->where('user_id',Auth::user()->id)->first();
+            $comment ->delete();
+             return response()->json([
+             'statuse' => 200,
+            'massage' => 'deleted successfully'
+            ]);
+        }   
+        else
+        {
+            return response()->json([
+                'statuse' => 401,
+                'massage' => 'Login to delete this comment'
+            ]);
+        }
+    }
 }
+

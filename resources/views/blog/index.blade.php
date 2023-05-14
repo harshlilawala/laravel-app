@@ -10,8 +10,8 @@
 </div>
 
 @if (session()->has('message'))
-    <div class="mt-3">
-        <p class=" mb-4 text-white bg-primary  py-4">
+    <div class="mt-3 container">
+        <p class=" mb-4 text-dark fw-bold py-4">
             {{ session()->get('message') }}
         </p>
     </div>
@@ -21,7 +21,7 @@
     <div class="pt-5 container m-auto">
         <a 
             href="/blog/create"
-            class="bg-success text-white  py-3 px-5">
+            class="bg-success text-white btn btn-success fw-bold py-3 px-5">
             Create post
         </a>
     </div>
