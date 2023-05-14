@@ -50,6 +50,11 @@
                 {!! $comment->comment_body !!}
                 
             </p>
+            @if(Auth::check() && Auth::id() == $comment->user_id)
+                <div>
+                    <button type="button" value="{{ comment->id}}"href="" class="btn btn-danger btn-sm me-2">Delete</button>
+                </div>
+            @endif
     </div>
     
 </div>
@@ -58,5 +63,41 @@
             @endforelse
 </div>
     
+
+@endsection
+@section('scripts')
+
+    <script>
+        $(document).ready(function () {
+
+            $(document).on('click', '.deletecomment', function(){
+
+                if(confirem('Are you sure To Delete?'))
+                {
+                    var thisClicked = $(this);
+                    var comment_id = thisClicked.val();
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/delete-comment",
+                        data: {'comment_id': comment_id},
+                        success: function (res) {
+                            if(res.status == 200){
+                                thisClicked.closest('.comment-container').remove();
+                                alert(res.massage);
+                            }else{
+                                alert(res.massage);
+                            }
+                        }
+
+                    });
+                }
+
+            });
+
+        });
+            
+        
+    </script>
 
 @endsection
