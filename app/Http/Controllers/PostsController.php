@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Notifications\NewPostNotification;
 
 class PostsController extends Controller
 {
@@ -35,6 +35,7 @@ class PostsController extends Controller
     {
         return view('blog.create');
         
+        
     }
     
     /**
@@ -56,7 +57,14 @@ class PostsController extends Controller
 
         $request->image->move(public_path('images'), $newImageName);
 
-        Post::create([
+        // Post::create([
+        //     'title' => $request->input('title'),
+        //     'description' => $request->input('description'),
+        //     'more' => SlugService::createSlug(Post::class, 'more', $request->title),
+        //     'image_path' => $newImageName,
+        //     'user_id' => auth()->user()->id
+        // ]);
+        $user = Post::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'more' => SlugService::createSlug(Post::class, 'more', $request->title),
@@ -64,12 +72,14 @@ class PostsController extends Controller
             'user_id' => auth()->user()->id
         ]);
         
+        $user->notify(new NewPostNotification($user));
+
+        auth()->user()->notify(new NewPostNotification($user));
+        
         return redirect('/blog')
         ->with('message', 'Your post has been added!');
        
     }
-    
-
     /**
      * Display the specified resource.
      *

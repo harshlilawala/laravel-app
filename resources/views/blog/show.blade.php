@@ -17,6 +17,7 @@
 
             <p>{{ $post->description }}</p>
         </div>
+    
 </div>
 </div>
     

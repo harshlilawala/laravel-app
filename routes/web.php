@@ -20,6 +20,7 @@ Route::get('/',[PagesController::class,'index']);
 Route::resource('/blog', PostsController::class);
 // Route::get('/blog/{more}',[PostsController::class,'show']);
 // Route::delete('/blog/{more}', 'PostController@destroy');
+Route::get('/notifications', [App\Http\Controllers\PostsController::class, 'index'])->name('notifications.index');
 
 Auth::routes();
 
