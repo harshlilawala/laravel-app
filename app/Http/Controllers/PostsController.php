@@ -20,8 +20,10 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('blog.index')
-            ->with('posts', Post::orderBy('updated_at','DESC')->get());
+        // return view('blog.index')
+        //     ->with('posts', Post::orderBy('updated_at','DESC')->get());
+        $posts = Post::orderBy('updated_at', 'DESC')->paginate(1);
+        return view('blog.index', compact('posts'));
     }
 
     /**
@@ -32,8 +34,9 @@ class PostsController extends Controller
     public function create()
     {
         return view('blog.create');
+        
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -42,6 +45,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -59,10 +63,12 @@ class PostsController extends Controller
             'image_path' => $newImageName,
             'user_id' => auth()->user()->id
         ]);
-
+        
         return redirect('/blog')
         ->with('message', 'Your post has been added!');
+       
     }
+    
 
     /**
      * Display the specified resource.
@@ -72,7 +78,7 @@ class PostsController extends Controller
      */
     public function show($more)
     {
-
+        
         return view('blog.show')
         ->with('post', Post::where('more', $more)->first());
     }
