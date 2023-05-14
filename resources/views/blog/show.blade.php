@@ -51,10 +51,10 @@
                 
             </p>
             @if(Auth::check() && Auth::id() == $comment->user_id)
-                <div>
-                    <button type="button" value="{{ comment->id}}"href="" class="btn btn-danger btn-sm me-2">Delete</button>
-                </div>
-            @endif
+    <div>
+    <button type="button" value="{{ $comment->id }}" class="deletecomment btn btn-danger btn-sm me-2">Delete</button>
+    </div>
+             @endif
     </div>
     
 </div>
